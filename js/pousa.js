@@ -17,10 +17,19 @@ function isNumber(evt) {
 }
 function calc() {
 	var dr = parseInt($('[name=harga_barang]').val().split('.').join(""));
-	console.log(dr);
+	if (isNaN(dr)) {
+		$('#ed').html('');
+		$('[name=harga_barang]').val('0');
+		return;
+	}
 	var rp = dr * 14200;
-	var tx = rp / 10;
-	var pr = rp / 10;
+	if (dr > 1000000) {
+		var tx = rp * 15 /100;
+		var pr = rp * 15 / 100;
+	} else {
+		var tx = rp / 10;
+		var pr = rp / 10;
+	}
 	if (pr < 100000) {
 		pr = 100000;
 	}
@@ -29,7 +38,7 @@ function calc() {
 		$('#ed').html(ed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
 		$('[name=harga_barang]').val(dr.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
 	} else {
-		$('#ed').html('0');
+		$('#ed').html('');
 		$('[name=harga_barang]').val('0');
 	}
 }
