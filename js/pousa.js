@@ -18,8 +18,8 @@ function isNumber(evt) {
 function calc() {
 	var dr = parseInt($('[name=harga_barang]').val().split('.').join(""));
 	if (isNaN(dr)) {
-		$('#ed').html('');
-		$('[name=harga_barang]').val('0');
+		$('#ed').html('0');
+		$('[name=harga_barang]').val('');
 		return;
 	}
 	var rp = dr * 14200;
@@ -38,7 +38,7 @@ function calc() {
 		$('#ed').html(ed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
 		$('[name=harga_barang]').val(dr.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
 	} else {
-		$('#ed').html('');
-		$('[name=harga_barang]').val('0');
+		$('#ed').html('0');
+		$('[name=harga_barang]').val('');
 	}
 }
