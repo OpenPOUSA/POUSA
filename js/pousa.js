@@ -33,7 +33,7 @@ function calc() {
 		return;
 	}
 	console.log(dr);
-	var rp = dr * 14200;
+	var rp = dr * 14000;
 	if (rp > 1000000) {
 		var tx = rp * 15 /100;
 		var pr = rp * 15 / 100;
